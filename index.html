@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <!-- SEO -->
+    <title>GMG MONT – Elektroinstalacije</title>
+    <meta
+      name="description"
+      content="GMG MONT – pouzdane i stručne elektroinstalacije. Adaptacije, popravci, montaže i kompletna elektro rješenja."
+    />
+    <meta
+      name="keywords"
+      content="elektroinstalacije, električar, GMG Mont, montaža, popravci, adaptacije"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="GMG MONT – Elektroinstalacije" />
+    <meta
+      property="og:description"
+      content="Pouzdano. Brzo. Stručno. Elektroinstalacije po mjeri."
+    />
+    <meta property="og:image" content="slike/logo.png" />
+    <meta property="og:type" content="website" />
+
+    <style>
+      :root {
+        --gold: #c79a2b;
+        --gold-light: #e3bc63;
+        --dark: #1f1f1f;
+        --gray: #2e2e2e;
+        --light: #f5f5f5;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: var(--light);
+        color: var(--dark);
+        overflow-x: hidden;
+      }
+
+      /* HEADER */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+        z-index: 800;
+        border-bottom: 3px solid var(--gold);
+        border-radius: 0 0 22px 22px;
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0.5rem 2rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .logo img {
+        height: 42px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 3rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 600;
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        margin-top: 60px;
+        min-height: 100vh;
+        background:
+          linear-gradient(
+            rgba(15, 20, 30, 0.65) 0%,
+            rgba(25, 30, 40, 0.45) 40%,
+            rgba(199, 154, 43, 0.25) 100%
+          ),
+          url("slike/cabel.png");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* HERO CONTENT WRAPPER */
+      .hero-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        transform: translateY(-180px);
+      }
+
+      /* LOGO CARD */
+      .hero-card {
+        width: 520px;
+        height: 300px;
+
+        background-color: #ffffff;
+        background-image: url("slike/logo.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
+        border-radius: 28px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+
+        transform: translateY(-40px);
+      }
+
+      .hero-cta {
+        min-width: 240px;
+        text-align: center;
+      }
+
+      .hero-content {
+        background: rgba(0, 0, 0, 0.55);
+        padding: 2.5rem;
+        border-radius: 18px;
+        color: white;
+        max-width: 700px;
+        animation: fadeUp 1s ease;
+      }
+
+      .hero-content img {
+        width: 110px;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--gold-light);
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+      }
+
+      .cta {
+        display: inline-block;
+        padding: 0.9rem 2.4rem;
+        background: var(--gold);
+        color: black;
+        font-weight: bold;
+        border-radius: 40px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .cta:hover {
+        background: var(--gold-light);
+        transform: translateY(-3px);
+      }
+
+      /* SERVICES */
+      .services {
+        padding: 5rem 1.5rem;
+        background: white;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .services-grid {
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2rem;
+      }
+
+      .service-card {
+        background: linear-gradient(135deg, var(--gold), var(--gold-light));
+        padding: 2rem;
+        border-radius: 18px;
+        color: black;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+        transform: translateY(var(--y, 0));
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+
+        cursor: pointer;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .service-card h3 {
+        margin-bottom: 1rem;
+      }
+
+      /* ABOUT */
+      .about {
+        padding: 5rem 2rem;
+        background: var(--gray);
+        color: white;
+      }
+
+      .about-content {
+        max-width: 1100px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      /* O NAMA – TEKST STYLING */
+      .about-content > div {
+        max-width: 520px;
+        padding: 2.2rem 2.4rem;
+        background: rgba(255, 255, 255, 0.035);
+        border-radius: 20px;
+        border-left: 4px solid var(--gold);
+      }
+
+      /* NASLOV */
+      .about-content h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 1.3rem;
+        letter-spacing: 0.6px;
+        color: #ffffff;
+        position: relative;
+      }
+
+      /* zlatna linija ispod naslova */
+      .about-content h2::after {
+        content: "";
+        display: block;
+        width: 52px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        margin-top: 0.6rem;
+        border-radius: 2px;
+      }
+
+      /* PARAGRAF */
+      .about-content p {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .about img {
+        width: 100%;
+        border-radius: 18px;
+      }
+
+      /* CONTACT */
+      .contact {
+        padding: 5rem 2rem;
+        background: linear-gradient(135deg, var(--gold), var(--gold-light));
+        text-decoration: none;
+      }
+
+      .contact-grid {
+        max-width: 1000px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .contact-item {
+        background: rgba(255, 255, 255, 0.85);
+        padding: 2rem;
+        border-radius: 18px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      /* zajednički hover za sve contact kartice */
+      .contact-item {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      /* hover efekt */
+      .contact-card:hover .contact-item,
+      .location-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      /* link reset */
+      .contact-card {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        cursor: pointer;
+      }
+
+      .location-card {
+        cursor: pointer;
+      }
+
+      .electric-demo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* BULB */
+      .bulb {
+        font-size: 36px;
+        filter: grayscale(100%) brightness(0.4);
+        transition: all 0.4s ease;
+        cursor: pointer;
+      }
+
+      /* ON STATE */
+      .power-on .bulb {
+        filter: none;
+        text-shadow:
+          0 0 15px rgba(255, 215, 100, 0.8),
+          0 0 30px rgba(255, 200, 50, 0.6);
+      }
+
+      /* MOBILE */
+      @media (max-width: 768px) {
+        .hero {
+          min-height: 100vh;
+          background:
+            linear-gradient(
+              180deg,
+              rgba(10, 15, 25, 0.85) 0%,
+              rgba(10, 15, 25, 0.65) 45%,
+              rgba(199, 154, 43, 0.25) 100%
+            ),
+            url("slike/cabel.png");
+          background-size: cover;
+          background-position: center;
+        }
+
+        .hero-card {
+          width: 90%;
+          height: 260px;
+
+          background-size: cover; /* 🔥 FIX */
+          background-position: center;
+
+          background-color: rgba(255, 255, 255, 0.85);
+
+          border-radius: 22px;
+        }
+
+        .hero-wrapper {
+          transform: translateY(-180px);
+        }
+
+        .hero-cta {
+          width: 90%;
+          padding: 1.05rem;
+          font-size: 1.05rem;
+        }
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-links {
+          position: absolute;
+          top: 72px;
+          left: 1rem;
+          right: 1rem;
+
+          background: #ffffff;
+          border-radius: 18px;
+          padding: 1.8rem 1.5rem;
+
+          flex-direction: column;
+          gap: 1.4rem;
+          text-align: center;
+
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+          border-top: 3px solid var(--gold);
+
+          display: none;
+          animation: menuDrop 0.35s ease;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links a {
+          font-size: 1.15rem;
+          font-weight: 600;
+          color: var(--dark);
+          padding: 0.4rem 0.6rem;
+          border-radius: 8px;
+          transition:
+            background 0.25s ease,
+            color 0.25s ease;
+        }
+
+        .nav-links a:hover {
+          background: rgba(199, 154, 43, 0.15);
+          color: #000;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Scroll reveal base state */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+
+      /* When visible */
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="electric-demo">
+          <div class="bulb" id="bulb" onclick="togglePower()">💡</div>
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#services" onclick="closeMenu()">Usluge</a></li>
+          <li><a href="#about" onclick="closeMenu()">O nama</a></li>
+          <li><a href="#contact" onclick="closeMenu()">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-wrapper">
+        <div class="hero-card reveal"></div>
+        <a href="#contact" class="cta hero-cta reveal"> Kontaktirajte nas </a>
+      </div>
+    </section>
+
+    <section class="services reveal" id="services">
+      <h2 class="section-title">Usluge</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Adaptacije</h3>
+          <p>Kompletne elektroinstalacije u adaptacijama stanova i kuća.</p>
+        </div>
+        <div class="service-card">
+          <h3>Popravci</h3>
+          <p>Brza i sigurna sanacija elektro kvarova.</p>
+        </div>
+        <div class="service-card">
+          <h3>Montaže</h3>
+          <p>Ugradnja rasvjete, utičnica, ormara i sustava.</p>
+        </div>
+        <div class="service-card">
+          <h3>Kompletna rješenja</h3>
+          <p>Elektro rješenja po mjeri – od ideje do realizacije.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about reveal" id="about">
+      <div class="about-content">
+        <div>
+          <h2>O nama</h2>
+          <p>
+            GMG MONT je obrt specijaliziran za elektroinstalacijske radove.
+            Dugogodišnje iskustvo, pouzdanost i profesionalan pristup jamče
+            kvalitetu svakog projekta.
+          </p>
+        </div>
+        <img src="slike/about.png" alt="Elektro radovi" />
+      </div>
+    </section>
+
+    <section class="contact reveal" id="contact">
+      <div class="contact-grid">
+        <!-- TEL -->
+        <a href="tel:+385925068999" class="contact-card">
+          <div class="contact-item">📞 092 506 8999</div>
+        </a>
+
+        <!-- MAIL -->
+        <a href="mailto:info@gmgmont.com" class="contact-card">
+          <div class="contact-item">📧 info@gmgmont.com</div>
+        </a>
+
+        <!-- LOCATION (nije link) -->
+        <div class="contact-item location-card">📍 Zagreb, Hrvatska</div>
+      </div>
+    </section>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+      }
+      function closeMenu() {
+        document.getElementById("navLinks").classList.remove("active");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -80px 0px" },
+        );
+
+        elements.forEach((el) => observer.observe(el));
+      });
+      function togglePower() {
+        document.querySelector(".electric-demo").classList.toggle("power-on");
+      }
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+      }
+      function closeMenu() {
+        document.getElementById("navLinks").classList.remove("active");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -80px 0px" },
+        );
+
+        elements.forEach((el) => observer.observe(el));
+
+        // 🔥 AUTO BULB TOGGLE EVERY 1s
+        const bulbContainer = document.querySelector(".electric-demo");
+
+        setInterval(() => {
+          bulbContainer.classList.toggle("power-on");
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
