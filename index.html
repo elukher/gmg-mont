@@ -117,6 +117,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+        border-radius: 16px;
       }
 
       /* HERO CONTENT WRAPPER */
@@ -125,7 +126,7 @@
         flex-direction: column;
         align-items: center;
         gap: 2rem;
-        transform: translateY(-220px);
+        transform: translateY(-180px);
       }
 
       /* LOGO CARD */
@@ -133,19 +134,20 @@
         width: 520px;
         height: 300px;
 
-        background-color: #ffffff;
+        background-color: transparent;
         background-image: url("slike/logo.png");
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
 
-        border-radius: 28px;
         box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
 
         transform: translateY(-60px);
 
         overflow: hidden;
         position: relative;
+
+        border-radius: 28px;
       }
 
       /* HERO SLIDER */
@@ -203,12 +205,17 @@
       .cta {
         display: inline-block;
         padding: 0.9rem 2.4rem;
-        background: var(--gold);
-        color: black;
-        font-weight: bold;
+
+        /* glassy gold */
+        background: rgba(199, 154, 43, 0.55);
+
+        color: #000;
+        font-weight: 700;
         border-radius: 40px;
         text-decoration: none;
-        transition: 0.3s;
+
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        transition: all 0.3s ease;
       }
 
       .cta:hover {
@@ -405,24 +412,34 @@
           background-position: center;
         }
 
-        .hero-card {
-          width: 90%;
-          height: 260px;
+        @media (max-width: 768px) {
+          .hero-card {
+            width: 85vw; /* 🔥 full screen width */
+            max-width: 100vw;
+            height: 180px;
 
-          background-size: cover; /* 🔥 FIX */
-          background-position: center;
+            margin-left: calc(-50vw + 50%); /* 🔥 escape the wrapper */
+            margin-right: calc(-50vw + 50%);
 
-          background-color: rgba(255, 255, 255, 0.85);
+            background: transparent;
 
-          border-radius: 22px;
+            border-radius: 0;
+            border-radius: 22px;
+          }
+
+          .hero-slider img {
+            object-fit: cover;
+            background: transparent;
+            border-radius: 22px;
+          }
         }
 
         .hero-wrapper {
-          transform: translateY(-220px);
+          transform: translateY(-120px);
         }
 
         .hero-cta {
-          width: 90%;
+          width: 99%;
           padding: 1.05rem;
           font-size: 1.05rem;
         }
@@ -525,7 +542,7 @@
 
     <section class="hero">
       <div class="hero-wrapper">
-        <div class="hero-card">
+        <div class="hero-card reveal">
           <div class="hero-slider">
             <img src="slike/logo.png" class="active" />
             <img src="slike/vizit.png" />
