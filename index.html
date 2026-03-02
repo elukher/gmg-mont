@@ -143,6 +143,31 @@
         box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
 
         transform: translateY(-60px);
+
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* HERO SLIDER */
+      .hero-slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero-slider img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .hero-slider img.active {
+        opacity: 1;
       }
 
       .hero-cta {
@@ -500,7 +525,13 @@
 
     <section class="hero">
       <div class="hero-wrapper">
-        <div class="hero-card reveal"></div>
+        <div class="hero-card">
+          <div class="hero-slider">
+            <img src="slike/logo.png" class="active" />
+            <img src="slike/vizit.png" />
+            <img src="slike/about.png" />
+          </div>
+        </div>
         <a href="#contact" class="cta hero-cta reveal"> Kontaktirajte nas </a>
       </div>
     </section>
@@ -617,6 +648,14 @@
           bulbContainer.classList.toggle("power-on");
         }, 1000);
       });
+      const slides = document.querySelectorAll(".hero-slider img");
+      let currentSlide = 0;
+
+      setInterval(() => {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("active");
+      }, 5000);
     </script>
   </body>
 </html>
