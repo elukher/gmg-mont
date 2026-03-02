@@ -61,7 +61,7 @@
       nav {
         max-width: 1200px;
         margin: auto;
-        padding: 0.1rem 2rem;
+        padding: 0.3rem 2rem;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -531,7 +531,7 @@
     <header>
       <nav>
         <div class="electric-demo">
-          <div class="bulb" id="bulb" onclick="togglePower()">💡</div>
+          <div class="bulb" id="bulb">💡</div>
         </div>
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <ul class="nav-links" id="navLinks">
@@ -633,15 +633,6 @@
 
         elements.forEach((el) => observer.observe(el));
       });
-      function togglePower() {
-        document.querySelector(".electric-demo").classList.toggle("power-on");
-      }
-      function toggleMenu() {
-        document.getElementById("navLinks").classList.toggle("active");
-      }
-      function closeMenu() {
-        document.getElementById("navLinks").classList.remove("active");
-      }
 
       document.addEventListener("DOMContentLoaded", () => {
         const elements = document.querySelectorAll(".reveal");
